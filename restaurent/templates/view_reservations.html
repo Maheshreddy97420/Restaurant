@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'view_reservations.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-res-container">
+
+    <div class="admin-res-header">
+        <h2>All Reservations</h2>
+        <p>Manage and control restaurant reservations</p>
+    </div>
+
+    <form method="GET" class="filter-bar">
+        <input type="date" name="date">
+        <button type="submit">Filter</button>
+    </form>
+
+    <div class="table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Table</th>
+                    <th>Modify</th>
+                    <th>Cancel</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.user.username }}</td>
+                    <td>{{ i.reservation_date }}</td>
+                    <td>{{ i.time_slot }}</td>
+                    <td>{{ i.guests }}</td>
+                    <td>{{ i.table.table_number }}</td>
+                    <td>
+                        <a href="{% url 'admin_modify' i.id %}" class="action-btn modify">
+                            Modify
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'admin_cancle' i.id %}" class="action-btn cancel">
+                            Cancel
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7" class="no-data">No reservations found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}

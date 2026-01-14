@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'user_home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="user-home-container">
+
+    <!-- WELCOME -->
+    <div class="user-welcome">
+        <h1>Welcome, {{ request.user.username }} 👋</h1>
+        <p>We’re glad to have you at Aroha Restaurant</p>
+    </div>
+
+    <!-- ACTION CARDS -->
+    <div class="user-actions">
+
+        <a href="{% url 'reservation' %}" class="user-card">
+            <h2>🍽️ Book a Table</h2>
+            <p>Reserve your seat in just a few clicks</p>
+        </a>
+
+        <a href="{% url 'reserved' %}" class="user-card">
+            <h2>📋 My Reservations</h2>
+            <p>View or cancel your existing bookings</p>
+        </a>
+
+    </div>
+
+    <!-- INFO SECTION -->
+    <div class="user-info">
+        <h2>Why Dine With Us?</h2>
+        <p>
+            Enjoy a seamless dining experience with easy reservations,
+            flexible time slots, and a warm atmosphere curated just for you.
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}

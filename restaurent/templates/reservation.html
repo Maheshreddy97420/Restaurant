@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'reservation.css' %}">
+{% endblock %}
+{% block content %}
+<div class="reserve-container">
+
+    <div class="reserve-card">
+        <h2>Book Your Table</h2>
+        <p class="subtitle">Reserve your dining experience at Aroha</p>
+
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        {% if msg %}
+            <p class="success-msg">{{ msg }}</p>
+        {% endif %}
+
+        {% if data %}
+            <p class="success-msg">{{ data }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <input type="date" name="date" placeholder="Reservation Date">
+            </div>
+
+            <div class="input-group">
+                <input type="time" name="time" placeholder="Time Slot" required>
+            </div>
+
+            <div class="input-group">
+                <input type="number" name="guests" min="1" max="10" placeholder="Number of Guests" required>
+            </div>
+
+            <button type="submit" class="reserve-btn">Confirm Reservation</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

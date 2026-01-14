@@ -1,0 +1,94 @@
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    background: linear-gradient(90deg, #0f172a, #020617);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* LOGO TEXT */
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.nav-logo span {
+    font-size: 26px;          /* 🔥 Bigger */
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 1.5px;
+}
+
+.nav-logo small {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* NAV LINKS */
+.nav-links a {
+    margin-left: 35px;
+    text-decoration: none;
+    font-size: 17px;          /* 🔥 Increased */
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* UNDERLINE HOVER EFFECT */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #fbbf24;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #fbbf24;
+}
+
+/* BUTTON STYLE (LOGIN / LOGOUT) */
+.btn {
+    padding: 10px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+/* LOGIN BUTTON */
+.login {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #022c22;
+}
+
+/* LOGOUT BUTTON */
+.logout {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'login_.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Login to manage your reservations</p>
+
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username:admin123/user1" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password:admin@565/user@565" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

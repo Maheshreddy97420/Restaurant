@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'admin_modify.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="modify-container">
+
+    <div class="modify-card">
+        <h2>Modify Reservation</h2>
+        <p class="subtitle">Update reservation details</p>
+
+        {% if msg %}
+            <p class="success-msg">{{ msg }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group icon-input">
+                <input type="date" name="date"
+                       value="{{ reservation.reservation_date|date:'Y-m-d' }}"
+                       required>
+            </div>
+
+            <div class="input-group icon-input">
+                <input type="time" name="time"
+                       value="{{ reservation.time_slot|time:'H:i' }}"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <input type="number" name="guests"
+                       value="{{ reservation.guests }}"
+                       min="1" required>
+            </div>
+
+            <button type="submit" class="update-btn">Update Reservation</button>
+        </form>
+
+        <a href="{% url 'view_reservations' %}" class="back-link">← Back to Reservations</a>
+    </div>
+
+</div>
+
+{% endblock %}

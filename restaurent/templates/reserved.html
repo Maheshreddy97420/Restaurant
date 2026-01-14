@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'reserved.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="user-res-container">
+
+    <div class="user-res-header">
+        <h2>My Reservations</h2>
+        <p>Manage your upcoming dining reservations</p>
+    </div>
+
+    {% if msg %}
+        <p class="success-msg">{{ msg }}</p>
+    {% endif %}
+
+    {% if data %}
+    <div class="table-wrapper">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{ i.reservation_date }}</td>
+                    <td>{{ i.time_slot }}</td>
+                    <td>{{ i.guests }}</td>
+                    <td>
+                        <a href="{% url 'cancle' i.id %}" class="cancel-btn">
+                            Cancel
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="no-data">You don’t have any reservations yet.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

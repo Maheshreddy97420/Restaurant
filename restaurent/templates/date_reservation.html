@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'date_reservation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="date-res-container">
+
+    <div class="date-res-header">
+        <h2>Reservations by Date</h2>
+        <p>View all reservations for a selected date</p>
+    </div>
+
+    <form method="GET" class="filter-bar">
+        <input type="date" name="date" required>
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if data %}
+    <div class="table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Table</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{ i.user.username }}</td>
+                    <td>{{ i.reservation_date }}</td>
+                    <td>{{ i.time_slot }}</td>
+                    <td>{{ i.guests }}</td>
+                    <td>#{{ i.table.table_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="no-data">No reservations found for selected date.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

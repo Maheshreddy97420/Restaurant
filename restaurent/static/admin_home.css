@@ -1,0 +1,80 @@
+/* ADMIN DASHBOARD */
+.admin-container {
+    padding: 60px 80px;
+    background: #020617;
+    min-height: calc(100vh - 80px);
+    color: #f9fafb;
+}
+
+.admin-title {
+    font-size: 36px;
+    color: #fbbf24;
+    margin-bottom: 5px;
+}
+
+.admin-subtitle {
+    color: #9ca3af;
+    margin-bottom: 40px;
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card h3 {
+    font-size: 34px;
+    color: #fbbf24;
+}
+
+.stat-card p {
+    margin-top: 8px;
+    color: #e5e7eb;
+    font-size: 15px;
+}
+
+/* ACTION CARDS */
+.admin-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.admin-card {
+    background: linear-gradient(145deg, #020617, #0f172a);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #f9fafb;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.admin-card h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #fbbf24;
+}
+
+.admin-card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.admin-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+}

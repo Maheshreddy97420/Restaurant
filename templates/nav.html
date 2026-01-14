@@ -1,0 +1,25 @@
+<nav class="navbar">
+    <div class="nav-logo">
+        <span>Aroha</span>
+        <small>Restaurant</small>
+    </div>
+
+    <div class="nav-links">
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_staff %}
+                <a href="{% url 'admin_home' %}">Home</a>
+                <a href="{% url 'view_reservations' %}">Manage Reservations</a>
+                <a href="{% url 'date_reservation' %}">Date Reservation</a>
+                <a href="{% url 'logout_' %}" class="btn logout">Logout</a>
+            {% else %}
+                <a href="{% url 'user_home' %}">Home</a>
+                <a href="{% url 'reservation' %}">Book Table</a>
+                <a href="{% url 'reserved' %}">My Reservations</a>
+                <a href="{% url 'logout_' %}" class="btn logout">Logout</a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'login_' %}" class="btn login">Login</a>
+        {% endif %}
+    </div>
+</nav>

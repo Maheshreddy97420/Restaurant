@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <h1>Welcome to Aroha Restaurant</h1>
+    <p>Experience fine dining with seamless table reservations</p>
+
+    {% if not request.user.is_authenticated %}
+        <a href="{% url 'login_' %}" class="hero-btn">Reserve Your Table</a>
+    {% endif %}
+</section>
+<section class="about">
+    <h2>About Us</h2>
+    <p>
+        Aroha Restaurant offers a premium dining experience with carefully crafted
+        dishes, a warm ambiance, and customer-first service. Our reservation system
+        ensures a hassle-free dining experience for every guest.
+    </p>
+</section>
+<section class="features">
+    <h2>Why Choose Aroha?</h2>
+    <div class="feature-box">
+        <div class="feature">🍽️ Fine Dining Experience</div>
+        <div class="feature">📅 Easy Table Reservations</div>
+        <div class="feature">👥 Perfect for Families & Events</div>
+        <div class="feature">⚡ Fast & Secure Booking</div>
+    </div>
+</section>
+<section class="cta">
+    <h2>Book Your Experience Today</h2>
+    <p>Log in to reserve your table and enjoy an unforgettable dining experience.</p>
+
+    {% if not request.user.is_authenticated %}
+        <a href="{% url 'login_' %}" class="cta-btn">Login to Book</a>
+    {% endif %}
+</section>
+
+{% endblock %}

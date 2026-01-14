@@ -1,0 +1,91 @@
+/* USER RESERVATIONS PAGE */
+.user-res-container {
+    padding: 60px 80px;
+    background: #020617;
+    min-height: calc(100vh - 80px);
+    color: #f9fafb;
+}
+
+/* HEADER */
+.user-res-header h2 {
+    font-size: 34px;
+    color: #fbbf24;
+}
+
+.user-res-header p {
+    color: #9ca3af;
+    margin-top: 6px;
+    margin-bottom: 30px;
+}
+
+/* TABLE WRAPPER */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* TABLE */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #020617;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.user-table thead {
+    background: #0f172a;
+}
+
+.user-table th {
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #fbbf24;
+}
+
+.user-table td {
+    padding: 16px;
+    font-size: 14px;
+    border-top: 1px solid #1f2933;
+    color: #e5e7eb;
+}
+
+.user-table tbody tr:hover {
+    background: #0f172a;
+}
+
+/* CANCEL BUTTON */
+.cancel-btn {
+    padding: 8px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* SUCCESS MESSAGE */
+.success-msg {
+    background: #064e3b;
+    color: #a7f3d0;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* EMPTY STATE */
+.no-data {
+    margin-top: 40px;
+    font-size: 16px;
+    color: #9ca3af;
+}

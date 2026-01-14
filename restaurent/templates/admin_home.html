@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'admin_home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="admin-container">
+    <h1 class="admin-title">Admin Dashboard</h1>
+    <p class="admin-subtitle">Manage restaurant reservations and operations</p>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card">
+            <h3>{{ total_reservations }}</h3>
+            <p>Total Reservations</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ today_reservations }}</h3>
+            <p>Today’s Reservations</p>
+        </div>
+        <div class="stat-card">
+            <h3>{{ total_tables }}</h3>
+            <p>Total Tables</p>
+        </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="admin-actions">
+        <a href="{% url 'view_reservations' %}" class="admin-card">
+            📋
+            <h3>Manage Reservations</h3>
+            <p>View, modify, or cancel reservations</p>
+        </a>
+
+        <a href="{% url 'date_reservation' %}" class="admin-card">
+            📅
+            <h3>Date-wise Reservations</h3>
+            <p>Filter reservations by date</p>
+        </a>
+
+        <a href="/admin/" class="admin-card">
+            ⚙️
+            <h3>Django Admin</h3>
+            <p>Manage users and tables</p>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
