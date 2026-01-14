@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-c**ti1ucg1koef^gu2_(tqtn88r6t#q$k%m$@0r2l2eu4coqwl
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'restaurant-5f8v.onrender.com',
+    'localhost',
+    '127.0.0.1',
 
 ]
 
